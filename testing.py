@@ -6,7 +6,6 @@ from selenium.webdriver.firefox.firefox_profile import FirefoxProfile
 
 
 
-
 def get_links_from_google(query="popcorn"):
     driver = webdriver.Firefox()
     driver.implicitly_wait(20)
@@ -41,3 +40,5 @@ def get_website_content(url="https://en.wikipedia.org/wiki/Popcorn"):
         print(i.text)
         content.append(i.text)
     driver.quit()
+
+print(get_links_from_google("Trump U.N. ambassador"))
