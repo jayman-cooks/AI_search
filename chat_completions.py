@@ -8,7 +8,6 @@ def parse_single_quote_string(input_string):
     # This regex finds all substrings enclosed in single quotes
     return re.findall(r"'(.*?)'", input_string)
 
-#links = get_links_from_google("stack+overflow+how+to+add+7+strings")
 def parse_numbers(s):
     return [float(x.strip()) for x in s.split(',')]
 
@@ -31,6 +30,8 @@ def sanitize_links(links):
     links = parse_single_quote_string(content)
     print(links)
     return links
+
+# assigns a relevancy score to a given website (later is used to rank them)
 def assign_value(query, content):
     headers = {
         "Content-Type": "application/json"

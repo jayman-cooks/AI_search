@@ -1,9 +1,8 @@
 from site_scrape import get_links_from_google, get_website_content
 from chat_completions import sanitize_links, assign_value
 
-
-#query = input("enter your query(please only use alphabet characters): ")
 def make_query(query):
+    # formats the query for google
     g_query = query.replace(" ", "+")
     urls_content = get_website_content(sanitize_links(get_links_from_google(g_query)))
 
