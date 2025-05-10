@@ -41,4 +41,4 @@ def get_website_content(url="https://en.wikipedia.org/wiki/Popcorn"):
         content.append(i.text)
     driver.quit()
 
-print(get_links_from_google("Trump U.N. ambassador"))
+print(get_website_content("https://en.wikipedia.org/wiki/Haribo"))

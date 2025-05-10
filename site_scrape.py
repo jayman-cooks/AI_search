@@ -11,7 +11,7 @@ def get_links_from_google(query="popcorn"):
     driver = webdriver.Firefox()
     driver.implicitly_wait(20)
     list_of_links = []
-    for x in range(10):
+    for x in range(5):
         driver.get(f"https://www.google.com/search?q={query}&start={x}0")
 
 
@@ -26,18 +26,23 @@ def get_links_from_google(query="popcorn"):
     print(f"list: {list_of_links}")
     driver.quit()
     return list_of_links
-def get_website_content(url="https://en.wikipedia.org/wiki/Popcorn"):
+def get_website_content(urls=["https://en.wikipedia.org/wiki/Popcorn"]):
     options = Options()
     firefox_profile = FirefoxProfile()
     firefox_profile.set_preference("javascript.enabled", False)
     options.profile = firefox_profile
-
     driver = webdriver.Firefox(options=options)
-    driver.implicitly_wait(20)
-    driver.get(url)
-    elements = driver.find_elements(By.TAG_NAME, "p")
-    content = []
-    for i in elements:
-        print(i.text)
-        content.append(i.text)
+    #driver.implicitly_wait(20)
+    url_content = {}
+
+    for x in urls:
+        driver.get(x)
+        elements = driver.find_elements(By.TAG_NAME, "p")
+        content = []
+        for i in elements:
+            print(i.text)
+            content.append(i.text)
+        url_content.update({x: content})
     driver.quit()
+    return url_content
+
